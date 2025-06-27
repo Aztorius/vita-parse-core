@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 INDENT_WIDTH = 4
 current = 0
 

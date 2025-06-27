@@ -1,8 +1,12 @@
-from elftools.common.py3compat import str2bytes
-
 import string
 import struct
 
+
+def bytes2str(b):
+    return b.decode('latin-1')
+
+def str2bytes(s):
+    return s.encode('latin-1')
 
 def u16(buf, off):
     buf = buf[off:off+2]
@@ -25,16 +29,16 @@ def u32(buf, off):
 def c_str(buf, off):
     out = ""
     while off < len(buf) and buf[off] != '\0':
-        out += buf[off]
+        out += str(buf[off])
         off += 1
     return out
 
 
 def hexdump(src, length=16, sep='.'):
-    DISPLAY = string.digits + string.letters + string.punctuation
+    DISPLAY = string.digits + string.ascii_letters + string.punctuation
     FILTER = ''.join(((x if x in DISPLAY else '.') for x in map(chr, range(256))))
     lines = []
-    for c in xrange(0, len(src), length):
+    for c in range(0, len(src), length):
         chars = src[c:c+length]
         hex = ' '.join(["%02x" % ord(x) for x in chars])
         if len(hex) > 24:

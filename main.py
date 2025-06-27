@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from elftools.elf.elffile import ELFFile
 
 from collections import defaultdict
