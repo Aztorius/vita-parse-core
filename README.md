@@ -15,7 +15,7 @@ Get a vita core file from `ux0:data` (a `.psp2dmp` file). It's not necessary to 
 Run:
 
 ```
-python2 main.py core_file.psp2dmp homebrew_file.elf
+python3 main.py core_file.psp2dmp homebrew_file.elf
 ```
 
 Note that `homebrew_file.elf` is an `.elf` file, not `.velf`, not `eboot.bin`. It's recommended that you build it with the `-g` gcc flag enabled to get better debugging information.
